@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${notoSans.variable} antialiased bg-slate-100`}>
         <div className="flex w-full h-screen">
-          <div className="h-full min-w-20 md:min-w-[300px] bg-white transition1">
+          <div className="h-full min-w-16 md:min-w-[250px] xl:min-w-[350px] bg-white transition1">
             <Sidebar />
           </div>
           <div className="w-full h-full flex flex-col p-2 md:p-5">

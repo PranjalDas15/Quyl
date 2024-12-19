@@ -10,11 +10,15 @@ import chapter from '../../public/chapter.svg'
 import courses from '../../public/search.svg'
 import logo from '../../public/logo.svg'
 import reports from '../../public/reports.svg'
+import plus from '../../public/plus.svg'
 
 import adminImage from '../../public/admin.png'
+import science from '../../public/science.png'
+import math from '../../public/math.png'
 
 const icons = {
-    help, message, settings, notification, eclipse, search, settings2, dashboard, chapter, courses, logo
+    help, message, settings, notification, eclipse, search, settings2, dashboard, chapter, courses, logo,
+    plus, science, math
 
 }
 
@@ -55,33 +59,33 @@ const data = [
         student_name: "Pranjal Das",
         cohort: "AY 2024-25",
         courses: [
-            {c: 'CBSE 9 Science'},
-            {c: 'CBSE 9 Math'}
+            {c: 'CBSE 9 Science', image: science},
+            {c: 'CBSE 9 Math', image: math}
         ],
-        date_joined: '17 Nov.2024',
-        last_login: '18 Dec. 2024',
+        date_joined: '17 Nov. 2024',
+        last_login: '18 Dec. 2024 4:14 PM',
         status: 'Online'
     },
     {
         student_name: "Dharitri Das",
         cohort: "AY 2024-25",
         courses: [
-            {c: 'CBSE 9 Science'},
-            {c: 'CBSE 9 Math'}
+            {c: 'CBSE 9 Science', image: science},
+            {c: 'CBSE 9 Math', image: math}
         ],
-        date_joined: '17 Nov.2024',
-        last_login: '18 Dec. 2024',
+        date_joined: '17 Nov. 2024',
+        last_login: '18 Dec. 2024 4:14 PM',
         status: 'Online'
     },
     {
         student_name: "Mano Das",
         cohort: "AY 2024-25",
         courses: [
-            {c: 'CBSE 9 Science'},
-            {c: 'CBSE 9 Math'}
+            {c: 'CBSE 9 Science', image: science},
+            {c: 'CBSE 9 Math', image: math}
         ],
-        date_joined: '17 Nov.2024',
-        last_login: '18 Dec. 2024',
+        date_joined: '17 Nov. 2024',
+        last_login: '18 Dec. 2024 4:14 PM',
         status: 'Offline'
     },
     

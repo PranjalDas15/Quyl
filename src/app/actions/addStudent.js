@@ -18,7 +18,6 @@ export default async function addStudent(formData) {
         status: 'Offline',
       }
     });
-    // Add any redirection or success logic here
     console.log('Student added:', res);
   } catch (error) {
     console.error('Error adding student:', error);

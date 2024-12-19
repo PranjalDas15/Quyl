@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className="w-full h-[100px] flex justify-center items-center gap-5 lg:gap-10">
       <div className="relative sm:w-[50%] h-full flex justify-center items-center">
-        <input type="text" className="w-full h-16 rounded-lg pl-20 text-xl" placeholder="Search your course"/>
+        <input type="text" className="w-full h-16 rounded-lg pl-20 pr-5 text-xl" placeholder="Search your course"/>
         <div className="absolute left-0 px-5">
             <Image alt={assets.icons.search} src={assets.icons.search} width={25} height={25} />
         </div>
