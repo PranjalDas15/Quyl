@@ -91,11 +91,25 @@ const data = [
     
 ]
 
+const cohorts = [
+    {cohort: "AY 2022-23"},
+    {cohort: "AY 2023-24"},
+    {cohort: "AY 2024-25"},
+]
+
+const course = [
+    {id: 1, name: "CBSE 7"},
+    {id: 2, name: "CBSE 8"},
+    {id: 3, name: "CBSE 9"},
+]
+
 const assets = {
     icons,
     info,
     sidebar,
-    data
+    data,
+    cohorts,
+    course
 }
 
 export default assets

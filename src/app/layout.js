@@ -1,7 +1,7 @@
 import { Noto_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "./Components/Navbar";
-import Sidebar from "./Components/Sidebar";
+import Sidebar from "@/components/Sidebar";
+import Navbar from "@/components/Navbar";
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           </div>
           <div className="w-full h-full flex flex-col p-2 md:p-5">
             <div className="h-[100px]">
-              <Navbar />
+              <Navbar/>
             </div>
             <div className="bg-white overflow-y-auto h-full rounded-lg">{children}</div>
           </div>

@@ -1,34 +1,135 @@
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// enum Status {
+//   Online
+//   Offline
+// }
+
+// model Students {
+//   id           Int             @id @default(autoincrement())
+//   student_name String
+//   cohort       String
+//   courses      StudentCourse[]
+//   date_joined  DateTime        @default(now())
+//   last_login   DateTime        @default(now())
+//   status       Status
+// }
+
+// model Courses {
+//   id             Int             @id @default(autoincrement())
+//   name           String
+//   subjects       Subjects[]
+//   studentCourses StudentCourse[]
+// }
+
+// model Subjects {
+//   id       Int     @id @default(autoincrement())
+//   name     String
+//   course   Courses @relation(fields: [courseId], references: [id])
+//   courseId Int
+// }
+
+// model StudentCourse {
+//   id        Int      @id @default(autoincrement())
+//   studentId Int
+//   courseId  Int
+//   student   Students @relation(fields: [studentId], references: [id])
+//   course    Courses  @relation(fields: [courseId], references: [id])
+
+//   @@unique([studentId, courseId])
+// }
+
+
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// enum Status {
+//   Online
+//   Offline
+// }
+
+// model Students {
+//   id           Int             @id @default(autoincrement())
+//   student_name String
+//   cohort       String
+//   courses      StudentCourse[]
+//   date_joined  DateTime        @default(now())
+//   last_login   DateTime        @default(now())
+//   status       Status
+// }
+
+// model Courses {
+//   id       Int             @id @default(autoincrement())
+//   name     String          @unique
+//   subjects CourseSubject[]
+//   studentCourses StudentCourse[]
+// }
+
+// model Subjects {
+//   id       Int             @id @default(autoincrement())
+//   name     String          @unique
+//   courses  CourseSubject[]
+// }
+
+// model CourseSubject {
+//   courseId  Int
+//   subjectId Int
+//   course    Courses   @relation(fields: [courseId], references: [id])
+//   subject   Subjects  @relation(fields: [subjectId], references: [id])
+
+//   @@id([courseId, subjectId])
+// }
+
+// model StudentCourse {
+//   id        Int      @id @default(autoincrement())
+//   studentId Int
+//   courseId  Int
+//   student   Students @relation(fields: [studentId], references: [id])
+//   course    Courses  @relation(fields: [courseId], references: [id])
+
+//   @@unique([studentId, courseId])
+// }
+
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "postgresql" 
   url      = env("DATABASE_URL")
 }
 
-enum Cohort {
-  AY_2022_23
-  AY_2023_24
-  AY_2024_25
+model Student {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  courseId  Int
+  course    Course   @relation(fields: [courseId], references: [id])
+  cohort    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  last_login DateTime
+  isOnline Boolean
 }
 
-enum Status {
-  Online
-  Offline
-}
-
-enum Courses {
-  CBSE_9_Math
-  CBSE_9_Science
-}
-
-model Students {
-  id Int @id @default(autoincrement())
-  student_name String
-  cohort Cohort
-  courses Courses
-  date_joined DateTime @default(now())
-  last_login DateTime @default(now())
-  status Status
+model Course {
+  id        Int       @id @default(autoincrement())
+  name      String
+  subjects  String[]
+  students  Student[]
 }
