@@ -180,18 +180,15 @@ export default function page() {
                     {formatDate(student.createdAt).slice(0, 12)}
                   </td>
                   <td className="py-2">{formatDate(student.last_login)}</td>
-                  <td className="py-2 px-5 group-hover:hidden block">
+                  <td className="py-2 px-5 group-hover:hidden flex items-center">
                     <div
                       className={`h-4 w-4 rounded-full ${
                         student.isOnline ? "bg-green-400" : "bg-red-500"
                       }`}
                     ></div>
                   </td>
-                  <td className="group-hover:flex gap-2 hidden">
-                    <button className="hover:text-red-500">
-                      <PenBox />
-                    </button>
-                    <button onClick={() => handleDelete(student.id)} className="hover:text-red-500">
+                  <td className="group-hover:flex items-center gap-2 hidden">
+                    <button onClick={() => handleDelete(student.id)} className="hover:text-red-500 flex items-center">
                       <X />
                     </button>
                   </td>

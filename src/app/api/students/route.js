@@ -111,11 +111,3 @@ export async function DELETE(req) {
         });
     }
 }
-
-export async function PUT(req) {
-    try {
-        
-    } catch (error) {
-        
-    }
-}
