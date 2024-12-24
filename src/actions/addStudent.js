@@ -1,25 +1,22 @@
-'use server'
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { setLoading, setError, resetForm } from "@/lib/features/form/formSlice";
+import axios from "axios";
 
-export default async function addStudent(formData) {
-  const student_name = formData.get('student_name');
-  const cohort = formData.get('cohort');
-  const courses = formData.get('courses');
+export const addStudent = (name, cohort, course) => async (dispatch) => {
+    try {
+        dispatch(setLoading(true));
 
-  try {
-    const res = await prisma.students.create({
-      data: {
-        student_name,
-        cohort,
-        courses,
-        date_joined: new Date(),
-        last_login: new Date(),
-        status: 'Offline',
-      }
-    });
-    console.log('Student added:', res);
-  } catch (error) {
-    console.error('Error adding student:', error);
-  }
+        const response = await axios.post('/api/students', {name, cohort, courseId: course});
+
+        if(response.status != 200) {
+            throw new Error("Failed to add a Student.");
+        }
+
+        dispatch(resetForm());
+    } catch (error) {
+        dispatch(setError(error.message));
+        console.log("Error adding student: ", error);
+    } finally {
+        dispatch(setLoading(false));
+    }
 }
+
